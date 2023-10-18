@@ -37,8 +37,8 @@ public class barrelspawner : MonoBehaviour
         }
         Vector3 spawnpos = new Vector3(
             transform.position.x,
-            transform.position.y,
-            transform.position.z + Random.Range(ymin, ymax)
+            transform.position.y + Random.Range(ymin, ymax),
+            transform.position.z 
             );
         
             Instantiate(redBarrel, spawnpos, transform.rotation);
