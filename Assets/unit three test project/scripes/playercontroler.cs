@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playercontroler : MonoBehaviour
 {
-    private playercontroler playercontrolerscript;
+    
     private Rigidbody playerRB;
   private Animator playerAM;
     public bool gameover = false;
