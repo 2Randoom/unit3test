@@ -6,8 +6,12 @@ public class playercontroler : MonoBehaviour
 {
     
     private Rigidbody playerRB;
-  private Animator playerAM;
+    private Animator playerAM;
     public bool gameover = false;
+
+    private AudioSource PlayerAudio;
+    public AudioClip jump2;
+    public AudioClip death;
 
     //flap variables
     public float flapforce = 10f;
@@ -18,6 +22,7 @@ public class playercontroler : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody>();
         playerAM = GetComponent<Animator>();
+        PlayerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +31,8 @@ public class playercontroler : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)  && gameover == false)
         {
             playerRB.AddForce(Vector3.up * flapforce, ForceMode.Impulse);
+
+            PlayerAudio.PlayOneShot(jump2);
            
 
 
@@ -42,7 +49,8 @@ public class playercontroler : MonoBehaviour
             Debug.Log("gameover");
             playerAM.SetBool("death", true);
             gameover = true;
-            
+
+            PlayerAudio.PlayOneShot(death);
         }
       
     }
