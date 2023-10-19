@@ -9,7 +9,7 @@ public class playercontroler : MonoBehaviour
     private Animator playerAM;
     public bool gameover = false;
 
-    private AudioSource PlayerAudio;
+    private AudioSource playerAudio;
     public AudioClip jump2;
     public AudioClip death;
 
@@ -22,7 +22,7 @@ public class playercontroler : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody>();
         playerAM = GetComponent<Animator>();
-        PlayerAudio = GetComponent<AudioSource>();
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class playercontroler : MonoBehaviour
         {
             playerRB.AddForce(Vector3.up * flapforce, ForceMode.Impulse);
 
-            PlayerAudio.PlayOneShot(jump2);
+            playerAudio.PlayOneShot(jump2);
            
 
 
@@ -50,7 +50,7 @@ public class playercontroler : MonoBehaviour
             playerAM.SetBool("death", true);
             gameover = true;
 
-            PlayerAudio.PlayOneShot(death);
+            playerAudio.PlayOneShot(death);
         }
       
     }
