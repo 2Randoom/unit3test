@@ -6,6 +6,7 @@ public class barrelspawner : MonoBehaviour
 {
     private playercontroler playercontrolerscript;
     public GameObject redBarrel;
+   
     private Vector3 spawnpos = new Vector3(0, 0, 0);
    
     public float ymax = 10f;
@@ -42,7 +43,9 @@ public class barrelspawner : MonoBehaviour
             );
         
             Instantiate(redBarrel, spawnpos, transform.rotation);
-         
+
+
+      
     }
     
 }

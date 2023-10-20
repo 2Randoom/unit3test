@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.Arm;
 
 public class playercontroler : MonoBehaviour
 {
-    
+
+   
+
+
     private Rigidbody playerRB;
     private Animator playerAM;
+    private ParticleSystem playerPS;
     public bool gameover = false;
 
     private AudioSource playerAudio;
     public AudioClip jump2;
     public AudioClip death;
+    
 
     //flap variables
     public float flapforce = 10f;
@@ -23,6 +29,9 @@ public class playercontroler : MonoBehaviour
         playerRB = GetComponent<Rigidbody>();
         playerAM = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
+        playerPS = GetComponent<ParticleSystem>();
+
+
     }
 
     // Update is called once per frame
@@ -38,7 +47,8 @@ public class playercontroler : MonoBehaviour
 
         }
 
-
+       
+        
 
 
     }
@@ -49,6 +59,7 @@ public class playercontroler : MonoBehaviour
             Debug.Log("gameover");
             playerAM.SetBool("death", true);
             gameover = true;
+            playerPS.Stop();
 
             playerAudio.PlayOneShot(death);
         }
